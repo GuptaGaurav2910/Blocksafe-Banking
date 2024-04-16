@@ -15,7 +15,7 @@ function Login() {
 
   const handleSubmission = () => {
     if (!values.email || !values.pass) {
-      setErrorMsg("Fill all fields");
+      setErrorMsg("Fill all the fields");
       return;
     }
     setErrorMsg("");
@@ -36,7 +36,7 @@ function Login() {
   return (
     <div>
     <div className="auth">
-      {/* {error && <p className="error-message">{error}</p>} */}
+      {errorMsg && <p className="error-message">{errorMsg}</p>}
           <form action="" class="sign-in-form">
               <h2 class="title">Login</h2>
               <div class="input-field">
@@ -52,8 +52,6 @@ function Login() {
           }/>
               </div>
               <a href="#" class="forgot-password">Forgot password?</a>
-
-              <b>{errorMsg}</b>
 
               <input type="submit" value="Login" class="btn" disabled={submitButtonDisabled} onClick={handleSubmission}/>
               <p>Don't have an account?{" "}<span><Link to="/signup" class="account-text" id="sign-up-link">Signup</Link></span> </p>

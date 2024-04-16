@@ -17,7 +17,7 @@ export default function Signup() {
   
     const handleSubmission = () => {
       if (!values.name || !values.email || !values.pass) {
-        setErrorMsg("Fill all fields");
+        setErrorMsg("Fill all the fields");
         return;
       }
       setErrorMsg("");
@@ -41,7 +41,8 @@ export default function Signup() {
   return (
     <div className="container">
     <div className="auth">
-    <form action="" className="sign-up-form">
+    {errorMsg && <p className="error-message">{errorMsg}</p>}
+           <form action="" className="sign-up-form">
               <h2 className="title">Sign up</h2>
               <div className="input-field">
                   <i className="fa fa-user icon"></i>
@@ -62,7 +63,6 @@ export default function Signup() {
                 setValues((prev) => ({ ...prev,pass: event.target.value }))
                 }/>
               </div>
-              <b className="error">{errorMsg}</b>
               <input type="submit" value="Sign up" className="btn" onClick={handleSubmission} disabled={submitButtonDisabled}/>
               <p>Already have an account?{" "}<span><Link to="/login" className="account-text" id="sign-in-link">Sign in</Link></span> </p>
           </form>
