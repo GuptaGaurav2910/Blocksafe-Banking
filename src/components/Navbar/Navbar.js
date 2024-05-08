@@ -4,22 +4,6 @@ import "./Navbar.css";
 import Login from "../Auth/Login";
 import Signup from "../Auth/Signup";
 
-// const connectWallet = async () => {
-//   if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
-//     try {
-//       /* Metamask is installed*/
-//       const accounts = await window.ethereum.request({
-//         method: "eth_requestAccounts",
-//       });
-//       console.log(accounts[0]);
-//     } catch (error) {
-//       console.log(error.message);
-//     }
-//   } else {
-//     console.log("PLease install metamask");
-//   }
-// };
-
 export default function Navbar() {
   return(
   <>

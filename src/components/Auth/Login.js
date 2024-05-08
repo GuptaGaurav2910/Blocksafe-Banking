@@ -1,8 +1,9 @@
-import './form.css';
+import "./form.css";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
+import { getDatabase, get, ref, child } from "firebase/database";
 
 function Login() {
   const navigate = useNavigate();
@@ -23,9 +24,16 @@ function Login() {
     setSubmitButtonDisabled(true);
     signInWithEmailAndPassword(auth, values.email, values.pass)
       .then(async (res) => {
-        setSubmitButtonDisabled(false);
-        
-        navigate("/");
+        try {
+          const userRef = ref(getDatabase(), `users/${res.user.uid}`);
+          const snapshot = await get(child(userRef, "name"));
+          const userName = snapshot.val();
+          setSubmitButtonDisabled(false);
+          navigate("/");
+        } catch (error) {
+          console.log("Error fetching data", error);
+          setErrorMsg("Error fetching data");
+        }
       })
       .catch((err) => {
         setSubmitButtonDisabled(false);
@@ -35,30 +43,53 @@ function Login() {
 
   return (
     <div>
-    <div className="auth">
-      {errorMsg && <p className="error-message">{errorMsg}</p>}
-          <form action="" class="sign-in-form">
-              <h2 class="title">Login</h2>
-              <div class="input-field">
-                  <i class="fa fa-user icon"></i>
-                  <input type="text" placeholder="Username"  onChange={(event) =>
-            setValues((prev) => ({ ...prev, email: event.target.value }))
-          }/>
-              </div>
-              <div class="input-field">
-                  <i class="fa fa-key icon"></i>
-                  <input type="password" placeholder="Password"  onChange={(event) =>
-            setValues((prev) => ({ ...prev, pass: event.target.value }))
-          }/>
-              </div>
-              <a href="#" class="forgot-password">Forgot password?</a>
+      <div className="auth">
+        {errorMsg && <p className="error-message">{errorMsg}</p>}
+        <form action="" className="sign-in-form">
+          <h2 className="title">Login</h2>
+          <div className="input-field">
+            <i className="fa fa-user icon"></i>
+            <input
+              type="text"
+              placeholder="Email"
+              onChange={(event) =>
+                setValues((prev) => ({ ...prev, email: event.target.value }))
+              }
+            />
+          </div>
+          <div className="input-field">
+            <i className="fa fa-key icon"></i>
+            <input
+              type="password"
+              placeholder="Password"
+              onChange={(event) =>
+                setValues((prev) => ({ ...prev, pass: event.target.value }))
+              }
+            />
+          </div>
+          <a href="#" className="forgot-password">
+            Forgot password?
+          </a>
 
-              <input type="submit" value="Login" class="btn" disabled={submitButtonDisabled} onClick={handleSubmission}/>
-              <p>Don't have an account?{" "}<span><Link to="/signup" class="account-text" id="sign-up-link">Signup</Link></span> </p>
-          </form>
+          <input
+            type="button"
+            value="Login"
+            className="btn"
+            disabled={submitButtonDisabled}
+            onClick={handleSubmission}
+          />
+          <p>
+            Don't have an account?{" "}
+            <span>
+              <Link to="/signup" className="account-text" id="sign-up-link">
+                Signup
+              </Link>
+            </span>{" "}
+          </p>
+        </form>
+      </div>
     </div>
-  </div>
-  )
+  );
 }
 
-export default Login
+export default Login;

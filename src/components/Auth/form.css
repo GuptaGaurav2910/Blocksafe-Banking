@@ -2,7 +2,7 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 
 body {
-    margin-top: 15%;
+    margin-top: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,7 +11,20 @@ body {
     display: grid;
     grid-template-columns: 1fr;
 }
-form {
+.sign-in-form {
+    grid-column: 1 / 2;
+    grid-row: 1/2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #333;
+    width: 350px;
+    height: 500px;
+    border-radius: 15px;
+    box-shadow: 10px 20px 20px 0 rgba(0, 0, 0, 0.4), -10px 20px 20px 0 rgba(0, 0, 0, 0.4), 0 -2px 20px 0 rgba(0, 0, 0, 0.5);
+}
+.sign-up-form {
     grid-column: 1 / 2;
     grid-row: 1/2;
     display: flex;
@@ -86,9 +99,9 @@ p,a {
     min-width: 50px;
     text-align: center;
 }
-.error {
+.error-message {
     font-weight: bold;
     font-size: 0.875rem;
-    color: #ff3300;
+    color: hsl(28, 88%, 62%);
     text-align: center;
   }

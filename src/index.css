@@ -8,8 +8,8 @@
 
 :root {
   --header-height: 3.5rem;
-  --first-color: hsl(28, 88%, 62%);
-  --title-color: hsl(0, 0%, 95%);
+  --first-color: hsl(30, 20%, 8%);
+  --title-color: hsl(0, 7%, 6%);
   --text-color: hsl(0, 0%, 75%);
   --body-color: hsl(0, 0%, 6%);
   --body-font: "Montserrat", sans-serif;
@@ -22,7 +22,7 @@
 }
 
 body {
-  background-color: var(--body-color);
+  background-color:rgb(105, 99, 105);
   color: var(--text-color);
   font-family: var(--body-font);
 }

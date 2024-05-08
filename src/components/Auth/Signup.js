@@ -1,4 +1,4 @@
-import {React,useState} from 'react'
+import {React,useState} from 'react';
 import './form.css';
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
@@ -25,6 +25,7 @@ export default function Signup() {
       setSubmitButtonDisabled(true);
       createUserWithEmailAndPassword(auth, values.email, values.pass)
         .then(async (res) => {
+          console.log(values);
           setSubmitButtonDisabled(false);
           const user = res.user;
           await updateProfile(user, {
@@ -33,6 +34,7 @@ export default function Signup() {
           navigate("/");
         })
         .catch((err) => {
+          alert(err.message);
           setSubmitButtonDisabled(false);
           setErrorMsg(err.message);
         });
