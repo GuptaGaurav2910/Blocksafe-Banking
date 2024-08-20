@@ -29,3 +29,29 @@ Traditional banking systems are often plagued by high fees, slow transaction pro
 - Truffle (globally installed)
 - Ganache (for local blockchain testing)
 
+Home Page:                                                                                              
+![Screenshot 2024-05-14 083933](https://github.com/user-attachments/assets/7d7dfa13-f830-4467-977a-9df6fbca4baa)  
+
+Error Encountered During Development:
+![Screenshot 2024-05-14 084029](https://github.com/user-attachments/assets/be5b3077-135e-42d1-972a-42094bc30b7b)
+
+Transaction Page:
+![Screenshot 2024-08-20 215158](https://github.com/user-attachments/assets/73f113c5-468f-44f3-8fa9-417b9b19333b)
+
+Send Money:
+![Screenshot 2024-08-20 215049](https://github.com/user-attachments/assets/f4cdfab9-7310-405f-b1a7-893224e14e50)
+
+Login Page:
+![Screenshot 2024-08-20 214919](https://github.com/user-attachments/assets/31174867-0f44-446f-b7a6-c7c9207641b4)
+
+Signup page:
+![Screenshot 2024-08-20 215023](https://github.com/user-attachments/assets/36ba352f-1026-4a5b-92d6-43f07dfa2500)
+
+
+
+
+
+
+
+
+
