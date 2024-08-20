@@ -1,0 +1,12 @@
+.main-content {
+  padding-top: 5rem;
+  padding-left: 1rem;
+  background-image: url('E:\blocksafe\client\public\meta.jpg'); 
+  background-size: cover;
+  background-position: center top; /* Fixes the image position */
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: white; /* Text color on top of the background image */
+}
